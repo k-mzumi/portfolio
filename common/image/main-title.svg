@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="394" height="161" viewBox="0 0 394 161">
+  <defs>
+    <filter id="Portfolio" x="0" y="0" width="394" height="161" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#775a0b" flood-opacity="0.702"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Portfolio)">
+    <text id="Portfolio-2" data-name="Portfolio" transform="translate(197 106)" fill="#fff" font-size="80" font-family="OrpheusPro-Medium, Orpheus Pro" font-weight="500" letter-spacing="0.12em"><tspan x="-181.92" y="0">Portfolio</tspan></text>
+  </g>
+</svg>

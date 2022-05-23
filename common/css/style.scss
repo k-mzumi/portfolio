@@ -1,0 +1,418 @@
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+  margin: 0;
+  padding: 0;
+  display: revert;
+  vertical-align: middle;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+ol, ul,ol li, ul li {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+table {
+  border-collapse: collapse;
+}
+textarea {
+  white-space: revert;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+@mixin fz($size: 16) {
+  font-size: ($size / 10) + rem;
+}
+
+$breakpoints: (
+  'sps': 'screen and (max-width: 390px)',//sp時
+  'sp': 'screen and (max-width: 767.98px)',//sp時
+  'pcall': 'screen and (min-width: 768px)',//PC全体
+  'pcmax': 'screen and (min-width: 1280px)',//PC1150以上
+) !default;
+
+@mixin mq($breakpoint: pcall) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+@mixin transition-anime04 {
+  transition: 0.4s;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+$main-color: #DEA12E;
+$sub-color: #537685;
+$bg-color: #FFFCEF;
+
+
+/* html */
+html {
+  font-size: 62.5%;
+}
+
+/* body */
+body {
+  font-family: 'Noto Sans JP', "Hiragino Kaku Gothic ProN", "Hiragino Sans", YuGothic, "Yu Gothic", "メイリオ", Meiryo, sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  letter-spacing: .03em;
+  color: #4E4E4E;
+  background-color: #fff;
+  @include mq(sp) {
+    font-size: 1.6rem;
+  }
+}
+
+.bg-color {
+  background-color: $bg-color;
+}
+
+.container {
+  width: 92.18%;
+  margin-left: auto;
+  margin-right: auto;
+  @include mq(sp) {
+    width: 89%;
+  }
+  @include mq(pcall) {
+    max-width: 1180px;
+  }
+}
+
+.section-title {
+  text-align: center;
+  @include mq(sp) {
+    width: 24.4%;
+    margin: 0 auto 9.3vw;
+  }
+  @include mq(pcall) {
+    margin-bottom: 75px;
+  }
+}
+
+/* --------------------------------
+footer
+-------------------------------- */
+footer {
+  width: 100%;
+
+  a {
+    display: block;
+    width: 100%;
+    padding: 2vw 0 3vw;
+    background-color: $sub-color;
+    position: relative;
+    @include mq(sp) {
+      padding: 6vw 0 8vw;
+    }
+    @include mq(pcall) {
+      @include transition-anime04;
+      &:hover {
+        opacity: .7;
+      }
+    }
+
+    &::before {
+      display: block;
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 8px 14px 8px;
+      border-color: transparent transparent #fff transparent;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* --------------------------------
+main
+-------------------------------- */
+#mainvisual {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  @include mq(sp) {
+    background-image: url(../image/sp-bg-top.jpg);
+    min-height: 80vw;
+  }
+  @include mq(pcall) {
+    min-height: 900px;
+    background-image: url(../image/bg-top.jpg);
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 0;
+    line-height: 1;
+    @include mq(sp) {
+      padding-top: 17vw;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 6.6vw;
+      width: 48%;
+    }
+    @include mq(pcall) {
+      padding-top: 25vw;
+      margin-bottom: 3.9vw;
+    }
+  }//h1
+
+  .nav {
+    @include flex-center;
+    @include mq(sp) {
+      column-gap: 12vw;
+    }
+    @include mq(pcall) {
+      column-gap: 7.5vw;
+    }
+
+    a {
+      color: #fff;
+      text-shadow: 0px 0px 10px rgba(119, 90, 11, 0.7);
+      font-weight: 500;
+      @include mq(pcall) {
+        font-size: 2.6rem;
+        @include transition-anime04;
+        &:hover {
+          text-shadow: 0px 0px 10px #624b0b;
+        }
+      }//pc
+    }//a
+  }//nav
+}//mainvisual
+
+/* --------------------------------
+skill
+-------------------------------- */
+
+#skill {
+  @include mq(sp) {
+    padding: 13.33vw 0;
+  }//pc
+  @include mq(pcall) {
+    padding: 110px 0;
+  }//pc
+
+  .section-title {
+    @include mq(sp) {
+      width: 18.4%;
+    }
+  }
+
+  .skill-read {
+    @include flex-center;
+    text-align: left;
+
+    @include mq(sp) {
+      margin-bottom: 9.3vw;
+    }//pc
+
+    @include mq(pcall) {
+      margin-bottom: 60px;
+    }//pc
+  }//skill-read
+
+  .skill-list {
+    width: 28%;
+    margin-left: auto;
+    margin-right: auto;
+    @include mq(sp) {
+      width: 70%;
+    }//pc
+    li {
+      background-repeat: no-repeat;
+      background-position: left center;
+      @include mq(sp) {
+        background-size: 5.7vw 5.7vw;
+        line-height: 5.7vw;
+        padding-left: 8vw;
+      }//pc
+      @include mq(pcall) {
+        background-size: 43px 43px;
+        line-height: 43px;
+        padding-left: 60px;
+      }//pc
+      & + li {
+        margin-top: 30px;
+      }
+
+      &.ps {
+        background-image: url(../image/ico-ps.png);
+      }
+      &.ai {
+        background-image: url(../image/ico-ai.png);
+      }
+      &.xd {
+        background-image: url(../image/ico-xd.png);
+      }
+      &.edit {
+        background-image: url(../image/ico-edt.png);
+      }
+      &.git {
+        background-image: url(../image/ico-git.png);
+      }
+    }//li
+  }//skill-list
+}//skill
+
+/* --------------------------------
+works
+-------------------------------- */
+#works {
+  @include mq(sp) {
+    padding: 17.3vw 0 20vw;
+  }//pc
+  @include mq(pcall) {
+    padding: 110px 0 200px;
+  }//pc
+
+  .works-list {
+    
+    @include mq(pcall) {
+      display: flex;
+      -moz-column-gap: 35px;
+      column-gap: 35px;
+    }//pc
+
+    li {
+      @include mq(sp) {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        border-bottom: $main-color solid 10px;
+
+        & + li {
+          margin-top: 16vw;
+        }
+      }//sp
+
+      @include mq(pcall) {
+        width: 31.35%;
+        border-bottom: $main-color solid 10px;
+      }//pc
+    }
+
+    a {
+      color: #4E4E4E;
+
+      @include mq(pcall) {
+        @include transition-anime04;
+        &:hover {
+          opacity: .7;
+        }
+      }//pc
+    }
+
+    .works-text {
+      @include mq(sp) {
+        padding: 6vw 4vw 6.5vw;
+      }//sp
+      @include mq(pcall) {
+        padding: 30px 30px 36px;
+      }//pc
+    }//works-text
+  }//works-list
+}//works
+
+/* --------------------------------
+about
+-------------------------------- */
+#about {
+  @include mq(sp) {
+    padding: 17.3vw 0 20vw;
+  }//sp
+  @include mq(pcall) {
+    padding: 110px 0 170px;
+  }//pc
+
+  .about-career {
+    @include mq(pcall) {
+      background: url(../image/line-career.png) no-repeat center top;
+      height: 540px;
+      width: 120px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }//pc
+    
+    p {
+      @include mq(sp) {
+        margin-bottom: 15vw;
+        text-align: center;
+        position: relative;
+
+        &::before {
+          display: block;
+          content: "";
+          border-radius: 10px;
+          background-color: $main-color;
+          width: 3px;
+          height: 10vw;
+          position: absolute;
+          bottom: -12vw;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        &:last-child {
+          margin-bottom: 0;
+          &::before {
+            display: none;
+          }
+        }
+      }//sp
+      @include mq(pcall) {
+        position: absolute;
+        width: 31.25vw;
+        &:nth-child(odd) {
+          text-align: right;
+        }
+      }
+    }//p
+
+    @include mq(pcall) {
+      .career01 {
+        top: 38px;
+        right: 134px;
+      }
+      .career02 {
+        top: 114px;
+        left: 134px;
+      }
+      .career03 {
+        top: 213px;
+        right: 134px;
+      }
+      .career04 {
+        top: 280px;
+        left: 134px;
+      }
+      .career05 {
+        top: 360px;
+        right: 134px;
+      }
+      .career06 {
+        top: 450px;
+        left: 134px;
+      }
+    }
+    
+  }//about-career
+}//about
