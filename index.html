@@ -14,14 +14,16 @@
 </head>
 <body id="head">
 <div id="mainvisual">
-  <h1><img src="common/image/main-title.svg" alt="Portfolio"></h1>
-  <nav>
-    <ul class="nav">
-      <li><a href="#skill">Skill</a></li>
-      <li><a href="#works">Works</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
-  </nav>
+  <div class="maincontents">
+    <h1><img src="common/image/main-title.svg" alt="Portfolio"></h1>
+    <nav>
+      <ul class="nav">
+        <li><a href="#skill">Skill</a></li>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </div>
 </div>
 
 <main>
@@ -29,15 +31,30 @@
     <div id="skill" class="bg-color">
       <div class="container">
         <h2 class="section-title"><img src="common/image/title-skill.svg" alt="Skill"></h2>
-        <p class="skill-read">デザインはPhotoshop、XDで作成。<br>本サイトはXDで全体のデザイン、メインビジュアルはPhotoshopで加工しています。</p>
 
-        <ul class="skill-list">
-          <li class="ps">Photoshop 8年</li>
-          <li class="ai">Illustrator 8年</li>
-          <li class="xd">Xd 2年</li>
-          <li class="edit">Visual Studio Code 2年</li>
-          <li class="git">Git 2年</li>
-        </ul>
+        <div class="skill-contents">
+          <div class="skill-read">
+            <p>デザインはPhotoshop、XDで作成。<br>
+              本サイトはXDで全体のデザイン、メインビジュアルは
+              Photoshopで加工しています。<br>
+              好きなソフトはphotoshop</p>
+            <p>Git Hub<br>
+             <a href="https://github.com/k-mzumi/portfolio" target="_blank">https://github.com/k-mzumi/portfolio</a>
+            </p>
+            <p>
+              behance<br>
+              <a href="https://www.behance.net/kanamtzm" target="_blank">https://www.behance.net/kanamtzm</a></p>
+          </div>
+          
+          <ul class="skill-list">
+            <li class="ps">Photoshop 8年</li>
+            <li class="ai">Illustrator 8年</li>
+            <li class="xd">Xd 2年</li>
+            <li class="edit">Visual Studio Code 2年</li>
+            <li class="git">Git 2年</li>
+          </ul>
+        </div>
+        
       </div>
     </div>
   </section>
@@ -47,20 +64,30 @@
       <div class="container">
         <h2 class="section-title"><img src="common/image/title-works.svg" alt="Works"></h2>
 
+        <p class="works-read">制作サイトを公開しています。<br>非掲載のサイトについては別途お問い合わせください。PDF、もしくはメールにてお渡しいたします。</p>
+        <p class="btn"><a href="https://forms.gle/pTcXmzZP94i3sv85A" target="_blank">お問い合わせ（Google form）</a></p>
+
+        <div class="newworks">
+          <a href="/">
+            <div class="newworks-img"><img src="common/image/img-site03.png" alt=""></div>
+            <div class="newworks-text">
+              <dl>
+                <dt>ポートフォリオサイト</dt>
+                <dd>制作期間：2日<br>
+                  デザイン・コーディング・git<br>
+                  初期：2022年5月<br>
+                  修正：2022年6月</dd>
+              </dl>
+            </div>
+          </a>
+        </div>
+
         <ul class="works-list">
           <li>
             <a href="https://www.behance.net/gallery/143708715/_" target="_blank">
               <img src="common/image/img-site01.png" alt="美容整形サイト（プレゼン）">
               <p class="works-text">美容整形サイト（プレゼン）<br>
                 制作期間：2日<br>PCデザインのみ</p>
-            </a>
-          </li>
-          <li>
-            <a href="/">
-              <img src="common/image/img-site02.png" alt="">
-              <p class="works-text">ポートフォリオサイト<br>
-                制作期間：1.5日<br>
-                デザイン・コーディング・git</p>
             </a>
           </li>
         </ul>

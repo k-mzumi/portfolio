@@ -90,18 +90,49 @@ body {
     width: 89%;
   }
   @include mq(pcall) {
-    max-width: 1180px;
+    max-width: 1010px;
   }
 }
 
 .section-title {
-  text-align: center;
+  text-align: left;
   @include mq(sp) {
     width: 24.4%;
-    margin: 0 auto 9.3vw;
+    margin: 0 auto;
+    padding: 13.33vw 0;
   }
   @include mq(pcall) {
-    margin-bottom: 75px;
+    padding: 100px 0 80px;
+  }
+}
+
+a {
+  color: #537685;
+  @include transition-anime04;
+  @include mq(pcall) {
+    &:hover {
+      color: #23556A;
+    }
+  }
+}
+
+.btn {
+  a {
+    box-sizing: border-box;
+    display: inline-block;
+    color: #537685;
+    @include transition-anime04;
+    border: #537685 solid 1px;
+    border-radius: 100px;
+    text-align: center;
+    padding: 1% 6.8% 1%;
+    font-size: 1.8rem;
+
+    &:hover {
+      background-color: #23556A;
+      border-color: #23556A;
+      color: #fff;
+    }
   }
 }
 
@@ -151,27 +182,28 @@ main
   background-position: center top;
   @include mq(sp) {
     background-image: url(../image/sp-bg-top.jpg);
-    min-height: 80vw;
+    height: 100vh;
+    height: 100svh;
   }
   @include mq(pcall) {
-    min-height: 900px;
+    height: 100vh;
     background-image: url(../image/bg-top.jpg);
   }
+
+  .maincontents {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }//maincontents
 
   h1 {
     text-align: center;
     font-size: 0;
     line-height: 1;
     @include mq(sp) {
-      padding-top: 17vw;
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 6.6vw;
       width: 48%;
-    }
-    @include mq(pcall) {
-      padding-top: 25vw;
-      margin-bottom: 3.9vw;
     }
   }//h1
 
@@ -202,40 +234,46 @@ main
 /* --------------------------------
 skill
 -------------------------------- */
-
 #skill {
-  @include mq(sp) {
-    padding: 13.33vw 0;
-  }//pc
-  @include mq(pcall) {
-    padding: 110px 0;
-  }//pc
-
   .section-title {
     @include mq(sp) {
       width: 18.4%;
     }
   }
 
-  .skill-read {
-    @include flex-center;
-    text-align: left;
+  .skill-contents {
+    
+    @include mq(pcall) {
+      display: flex;
+      justify-content: space-between;
+      text-align: left;
+    }//pc
+  }//skill-contents
 
+  .skill-read {
     @include mq(sp) {
       margin-bottom: 9.3vw;
     }//pc
 
     @include mq(pcall) {
       margin-bottom: 60px;
+      width: 48%;
     }//pc
+
+    P {
+      & + p{
+        @include mq(pcall) {
+          margin-top: 40px;
+        }//pc
+      }
+    }
   }//skill-read
 
   .skill-list {
-    width: 28%;
     margin-left: auto;
-    margin-right: auto;
     @include mq(sp) {
-      width: 70%;
+      width: 100%;
+      padding-bottom: 20vw;
     }//pc
     li {
       background-repeat: no-repeat;
@@ -278,14 +316,82 @@ works
 -------------------------------- */
 #works {
   @include mq(sp) {
-    padding: 17.3vw 0 20vw;
+    padding: 0 0 20vw;
   }//pc
   @include mq(pcall) {
-    padding: 110px 0 200px;
+    padding: 0 0 200px;
   }//pc
 
+  .works-read {
+    font-size: 1.8rem;
+    @include mq(sp) {
+      padding: 0 0 6.6vw;
+    }//pc
+    @include mq(pcall) {
+      padding: 0 0 50px;
+    }//pc
+  }
+
+  .newworks {
+    position: relative;
+    width: 88.7%;
+    margin: 0 auto;
+    @include mq(sp) {
+      padding: 7vw 0 14vw;
+    }//pc
+    @include mq(pcall) {
+      padding: 80px 0 150px;
+    }//pc
+
+    .newworks-img {
+      position: relative;
+      z-index: 55;
+    }
+
+    a {
+      color: #4E4E4E;
+
+      &:hover {
+        .newworks-text {
+          box-shadow: none;
+          border: #23556A solid 1px;
+        }
+      }
+    }
+
+    .newworks-text {
+      box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1);
+      @include transition-anime04;
+      @include mq(sp) {
+      }//pc
+      @include mq(pcall) {
+        top: 140px;
+        position: absolute;
+        background-color: #fff;
+        right: 0;
+        width: 90%;
+      }//pc
+      dl {
+        line-height: 2;
+        @include mq(sp) {
+          width: 80%;
+          padding: 10vw 0;
+          margin: 0 auto;
+        }//pc
+        @include mq(pcall) {
+          padding: 50px 0;
+          width: 43%;
+          margin-left: auto;
+        }//pc
+
+        dt {
+          font-size: 2.2rem;
+        }
+      }
+    }
+  }
+
   .works-list {
-    
     @include mq(pcall) {
       display: flex;
       -moz-column-gap: 35px;
@@ -337,10 +443,10 @@ about
 -------------------------------- */
 #about {
   @include mq(sp) {
-    padding: 17.3vw 0 20vw;
+    padding: 0 0 20vw;
   }//sp
   @include mq(pcall) {
-    padding: 110px 0 170px;
+    padding: 0 0 170px;
   }//pc
 
   .about-career {
